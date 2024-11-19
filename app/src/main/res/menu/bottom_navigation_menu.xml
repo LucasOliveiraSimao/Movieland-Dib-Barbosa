@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/movies"
+        android:icon="@drawable/selector_icon_movies"
+        android:title="@string/bottom_navigation_movies" />
+
+    <item
+        android:id="@+id/news"
+        android:icon="@drawable/selector_icon_news"
+        android:title="@string/bottom_navigation_news" />
+
+    <item
+        android:id="@+id/info"
+        android:icon="@drawable/selector_icon_info"
+        android:title="@string/bottom_navigation_info" />
+</menu>

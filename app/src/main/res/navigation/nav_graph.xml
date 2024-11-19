@@ -7,17 +7,17 @@
 
     <fragment
         android:id="@+id/moviesFragment"
-        android:name="com.lucassimao.movielanddibbarbosa.MoviesFragment"
+        android:name="com.lucassimao.movielanddibbarbosa.feature.home.MoviesFragment"
         android:label="fragment_movies"
         tools:layout="@layout/fragment_movies" />
     <fragment
         android:id="@+id/newsFragment"
-        android:name="com.lucassimao.movielanddibbarbosa.NewsFragment"
+        android:name="com.lucassimao.movielanddibbarbosa.feature.news.NewsFragment"
         android:label="fragment_news"
         tools:layout="@layout/fragment_news" />
     <fragment
         android:id="@+id/infoFragment"
-        android:name="com.lucassimao.movielanddibbarbosa.InfoFragment"
+        android:name="com.lucassimao.movielanddibbarbosa.feature.info.InfoFragment"
         android:label="fragment_info"
         tools:layout="@layout/fragment_info" />
 </navigation>

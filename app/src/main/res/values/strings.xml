@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Movieland Dib Barbosa</string>
+    <string name="bottom_navigation_movies">Filmes</string>
+    <string name="bottom_navigation_news">Notícias</string>
+    <string name="bottom_navigation_info">Informações</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

@@ -22,7 +22,7 @@
         tools:layout="@layout/fragment_info" />
     <fragment
         android:id="@+id/playNowMoviesFragment"
-        android:name="com.lucassimao.movielanddibbarbosa.feature.movie_play_now.PlayNowMoviesFragment"
+        android:name="com.lucassimao.movielanddibbarbosa.feature.movie_play_now.ui.PlayNowMoviesFragment"
         android:label="fragment_play_now_movies"
         tools:layout="@layout/fragment_play_now_movies" />
     <fragment

@@ -1,4 +1,4 @@
-package com.lucassimao.movielanddibbarbosa.feature.movie_play_now
+package com.lucassimao.movielanddibbarbosa.feature.movie_play_now.ui
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

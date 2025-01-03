@@ -8,4 +8,6 @@
     <color name="gray_light">#F5F5F5</color>
     <color name="gray_dark">#333333</color>
 
+    <color name="shimmer_base_color">#FFC2C2C2</color>
+
 </resources>

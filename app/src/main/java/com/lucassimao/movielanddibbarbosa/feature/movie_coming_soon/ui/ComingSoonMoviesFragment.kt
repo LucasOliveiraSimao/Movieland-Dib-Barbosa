@@ -1,4 +1,4 @@
-package com.lucassimao.movielanddibbarbosa.feature.movie_play_now.ui
+package com.lucassimao.movielanddibbarbosa.feature.movie_coming_soon.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -12,23 +12,23 @@ import com.lucassimao.movielanddibbarbosa.R
 import com.lucassimao.movielanddibbarbosa.core.ui.BaseFragment
 import com.lucassimao.movielanddibbarbosa.core.ui.ShimmerAdapter
 import com.lucassimao.movielanddibbarbosa.core.ui.UiState
-import com.lucassimao.movielanddibbarbosa.databinding.FragmentPlayNowMoviesBinding
-import com.lucassimao.movielanddibbarbosa.feature.movie_play_now.data.model.PlayNowMovieModel
+import com.lucassimao.movielanddibbarbosa.databinding.FragmentComingSoonMoviesBinding
+import com.lucassimao.movielanddibbarbosa.feature.movie_coming_soon.data.model.ComingSoonMovieModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
-class PlayNowMoviesFragment : BaseFragment<List<PlayNowMovieModel>>() {
-    private lateinit var binding: FragmentPlayNowMoviesBinding
-    private val viewModel by viewModels<PlayNowMoviesViewModel>()
-    private val playNowAdapter = PlayNowMoviesAdapter()
+class ComingSoonMoviesFragment : BaseFragment<List<ComingSoonMovieModel>>() {
+    private lateinit var binding: FragmentComingSoonMoviesBinding
+    private val viewModel by viewModels<ComingSoonMoviesViewModel>()
+    private val comingSoonAdapter = ComingSoonMoviesAdapter()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentPlayNowMoviesBinding.inflate(inflater, container, false)
-        viewModel.getPlayNowMovies()
+        binding = FragmentComingSoonMoviesBinding.inflate(inflater, container, false)
+        viewModel.getComingSoonMovies()
         return binding.root
     }
 
@@ -47,15 +47,15 @@ class PlayNowMoviesFragment : BaseFragment<List<PlayNowMovieModel>>() {
 
     private fun setupRecyclerViews(shimmerAdapter: ShimmerAdapter) {
         val gridLayoutManagerShimmer = GridLayoutManager(requireContext(), 2)
-        val gridLayoutManagerPlayNow = GridLayoutManager(requireContext(), 2)
+        val gridLayoutManagerComingSoon = GridLayoutManager(requireContext(), 2)
 
         binding.shimmerRecyclerView.apply {
             layoutManager = gridLayoutManagerShimmer
             adapter = shimmerAdapter
         }
-        binding.rvPlayNowMovies.apply {
-            layoutManager = gridLayoutManagerPlayNow
-            adapter = playNowAdapter
+        binding.rvComingSoonMovies.apply {
+            layoutManager = gridLayoutManagerComingSoon
+            adapter = comingSoonAdapter
         }
     }
 
@@ -76,16 +76,16 @@ class PlayNowMoviesFragment : BaseFragment<List<PlayNowMovieModel>>() {
             visibility = View.VISIBLE
             startShimmer()
         }
-        binding.rvPlayNowMovies.visibility = View.GONE
+        binding.rvComingSoonMovies.visibility = View.GONE
     }
 
-    override fun handleSuccessState(state: UiState.Success<List<PlayNowMovieModel>>) {
+    override fun handleSuccessState(state: UiState.Success<List<ComingSoonMovieModel>>) {
         binding.shimmerFrameLayout.apply {
             visibility = View.GONE
             stopShimmer()
         }
-        binding.rvPlayNowMovies.visibility = View.VISIBLE
-        playNowAdapter.submitList(state.data)
+        binding.rvComingSoonMovies.visibility = View.VISIBLE
+        comingSoonAdapter.submitList(state.data)
 
     }
 

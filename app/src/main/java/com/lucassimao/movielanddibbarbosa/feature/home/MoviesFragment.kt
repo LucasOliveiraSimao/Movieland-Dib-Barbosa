@@ -8,7 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.viewpager.widget.ViewPager
 import com.lucassimao.movielanddibbarbosa.R
 import com.lucassimao.movielanddibbarbosa.databinding.FragmentMoviesBinding
-import com.lucassimao.movielanddibbarbosa.feature.movie_coming_soon.ComingSoonMoviesFragment
+import com.lucassimao.movielanddibbarbosa.feature.movie_coming_soon.ui.ComingSoonMoviesFragment
 import com.lucassimao.movielanddibbarbosa.feature.movie_play_now.ui.PlayNowMoviesFragment
 
 class MoviesFragment : Fragment() {

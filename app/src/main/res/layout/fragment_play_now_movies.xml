@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".feature.movie_play_now.ui.PlayNowMoviesFragment">
+    tools:context=".feature.movie_coming_soon.ui.PlayNowMoviesFragment">
 
     <com.facebook.shimmer.ShimmerFrameLayout
         android:id="@+id/shimmerFrameLayout"
@@ -22,7 +22,7 @@
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
             app:spanCount="2"
             tools:itemCount="5"
-            tools:listitem="@layout/item_shimmer_play_now_movie" />
+            tools:listitem="@layout/item_shimmer" />
 
     </com.facebook.shimmer.ShimmerFrameLayout>
 

@@ -8,12 +8,12 @@ import com.lucassimao.movielanddibbarbosa.R
 import com.lucassimao.movielanddibbarbosa.core.data.createDiffCallback
 import com.lucassimao.movielanddibbarbosa.core.ui.loadImage
 import com.lucassimao.movielanddibbarbosa.databinding.ItemPlayNowMovieBinding
-import com.lucassimao.movielanddibbarbosa.feature.movie_play_now.data.model.MovieModel
+import com.lucassimao.movielanddibbarbosa.feature.movie_play_now.data.model.PlayNowMovieModel
 import com.lucassimao.movielanddibbarbosa.feature.movie_play_now.util.formatAsScheduleText
 
 class PlayNowMoviesAdapter : ListAdapter<
-        MovieModel, PlayNowMovieViewHolder>
-    (createDiffCallback<MovieModel>()) {
+        PlayNowMovieModel, PlayNowMovieViewHolder>
+    (createDiffCallback<PlayNowMovieModel>()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PlayNowMovieViewHolder {
         val inflater = LayoutInflater.from(parent.context)
@@ -29,11 +29,11 @@ class PlayNowMoviesAdapter : ListAdapter<
 class PlayNowMovieViewHolder(
     private val binding: ItemPlayNowMovieBinding
 ) : RecyclerView.ViewHolder(binding.root) {
-    fun setData(movieModel: MovieModel) {
+    fun setData(playNowMovieModel: PlayNowMovieModel) {
         with(binding) {
-            ivPnmMoviePoster.loadImage(movieModel.posterImageUrl, R.drawable.placeholder_image)
-            tvPnmMovieTitle.text = movieModel.title
-            tvPnmMovieShowTimes.text = movieModel.schedule.formatAsScheduleText()
+            ivPnmMoviePoster.loadImage(playNowMovieModel.posterImageUrl, R.drawable.placeholder_image)
+            tvPnmMovieTitle.text = playNowMovieModel.title
+            tvPnmMovieShowTimes.text = playNowMovieModel.schedule.formatAsScheduleText()
         }
     }
 }

@@ -1,20 +1,20 @@
-package com.lucassimao.movielanddibbarbosa.feature.movie_play_now.ui
+package com.lucassimao.movielanddibbarbosa.feature.movie_coming_soon.ui
 
 import androidx.lifecycle.viewModelScope
 import com.lucassimao.movielanddibbarbosa.core.ui.BaseViewModel
-import com.lucassimao.movielanddibbarbosa.feature.movie_play_now.data.model.PlayNowMovieModel
-import com.lucassimao.movielanddibbarbosa.feature.movie_play_now.domain.PlayNowMoviesRepository
+import com.lucassimao.movielanddibbarbosa.feature.movie_coming_soon.data.model.ComingSoonMovieModel
+import com.lucassimao.movielanddibbarbosa.feature.movie_coming_soon.domain.ComingSoonMoviesRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class PlayNowMoviesViewModel @Inject constructor(
-    private val repository: PlayNowMoviesRepository
-) : BaseViewModel<List<PlayNowMovieModel>>() {
+class ComingSoonMoviesViewModel @Inject constructor(
+    private val repository: ComingSoonMoviesRepository
+) : BaseViewModel<List<ComingSoonMovieModel>>() {
 
-    fun getPlayNowMovies() {
+    fun getComingSoonMovies() {
         viewModelScope.launch {
             delay(3000)
             handleStateFlow(

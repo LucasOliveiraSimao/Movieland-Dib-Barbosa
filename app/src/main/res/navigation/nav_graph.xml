@@ -12,7 +12,7 @@
         tools:layout="@layout/fragment_movies" />
     <fragment
         android:id="@+id/newsFragment"
-        android:name="com.lucassimao.movielanddibbarbosa.feature.news.NewsFragment"
+        android:name="com.lucassimao.movielanddibbarbosa.feature.news.ui.NewsFragment"
         android:label="fragment_news"
         tools:layout="@layout/fragment_news" />
     <fragment

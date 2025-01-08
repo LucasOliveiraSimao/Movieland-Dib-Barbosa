@@ -1,4 +1,4 @@
-package com.lucassimao.movielanddibbarbosa.feature.movie_play_now.ui
+package com.lucassimao.movielanddibbarbosa.feature.news.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,28 +7,28 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
-import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.lucassimao.movielanddibbarbosa.R
 import com.lucassimao.movielanddibbarbosa.core.ui.BaseFragment
 import com.lucassimao.movielanddibbarbosa.core.ui.ShimmerAdapter
 import com.lucassimao.movielanddibbarbosa.core.ui.UiState
-import com.lucassimao.movielanddibbarbosa.databinding.FragmentPlayNowMoviesBinding
-import com.lucassimao.movielanddibbarbosa.feature.movie_play_now.data.model.PlayNowMovieModel
+import com.lucassimao.movielanddibbarbosa.databinding.FragmentNewsBinding
+import com.lucassimao.movielanddibbarbosa.feature.news.data.model.ArticleModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
-class PlayNowMoviesFragment : BaseFragment<List<PlayNowMovieModel>>() {
-    private lateinit var binding: FragmentPlayNowMoviesBinding
-    private val viewModel by viewModels<PlayNowMoviesViewModel>()
-    private val playNowAdapter = PlayNowMoviesAdapter()
+class NewsFragment : BaseFragment<List<ArticleModel?>>() {
+    private lateinit var binding: FragmentNewsBinding
+    private val viewModel by viewModels<NewsViewModel>()
+    private val newsAdapter = NewsAdapter()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentPlayNowMoviesBinding.inflate(inflater, container, false)
-        viewModel.getPlayNowMovies()
+        binding = FragmentNewsBinding.inflate(inflater, container, false)
+        viewModel.getNews()
         return binding.root
     }
 
@@ -36,26 +36,24 @@ class PlayNowMoviesFragment : BaseFragment<List<PlayNowMovieModel>>() {
         super.onViewCreated(view, savedInstanceState)
 
         val shimmerAdapter: ShimmerAdapter by lazy {
-            ShimmerAdapter(layoutShimmer = R.layout.item_shimmer_movie)
+            ShimmerAdapter(layoutShimmer = R.layout.item_shimmer_news)
         }
 
         setupRecyclerViews(shimmerAdapter)
-
         collectUiState()
-
     }
 
     private fun setupRecyclerViews(shimmerAdapter: ShimmerAdapter) {
-        val gridLayoutManagerShimmer = GridLayoutManager(requireContext(), 2)
-        val gridLayoutManagerPlayNow = GridLayoutManager(requireContext(), 2)
+        val gridLayoutManagerShimmer = LinearLayoutManager(requireContext())
+        val linearLayoutManagerNews = LinearLayoutManager(requireContext())
 
         binding.shimmerRecyclerView.apply {
             layoutManager = gridLayoutManagerShimmer
             adapter = shimmerAdapter
         }
-        binding.rvPlayNowMovies.apply {
-            layoutManager = gridLayoutManagerPlayNow
-            adapter = playNowAdapter
+        binding.rvNews.apply {
+            layoutManager = linearLayoutManagerNews
+            adapter = newsAdapter
         }
     }
 
@@ -76,20 +74,21 @@ class PlayNowMoviesFragment : BaseFragment<List<PlayNowMovieModel>>() {
             visibility = View.VISIBLE
             startShimmer()
         }
-        binding.rvPlayNowMovies.visibility = View.GONE
+        binding.rvNews.visibility = View.GONE
     }
 
-    override fun handleSuccessState(state: UiState.Success<List<PlayNowMovieModel>>) {
+    override fun handleSuccessState(state: UiState.Success<List<ArticleModel?>>) {
         binding.shimmerFrameLayout.apply {
             visibility = View.GONE
             stopShimmer()
         }
-        binding.rvPlayNowMovies.visibility = View.VISIBLE
-        playNowAdapter.submitList(state.data)
+        binding.rvNews.visibility = View.VISIBLE
+        newsAdapter.submitList(state.data)
 
     }
 
     override fun handleErrorState(state: UiState.Error) {
         Toast.makeText(requireContext(), "Erro: ${state.message}", Toast.LENGTH_SHORT).show()
     }
+
 }

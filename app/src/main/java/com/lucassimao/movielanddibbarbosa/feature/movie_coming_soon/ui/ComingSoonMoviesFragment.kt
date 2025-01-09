@@ -36,7 +36,7 @@ class ComingSoonMoviesFragment : BaseFragment<List<ComingSoonMovieModel>>() {
         super.onViewCreated(view, savedInstanceState)
 
         val shimmerAdapter: ShimmerAdapter by lazy {
-            ShimmerAdapter(layoutShimmer = R.layout.item_shimmer)
+            ShimmerAdapter(layoutShimmer = R.layout.item_shimmer_movie)
         }
 
         setupRecyclerViews(shimmerAdapter)

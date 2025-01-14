@@ -31,9 +31,9 @@ class PlayNowMovieViewHolder(
 ) : RecyclerView.ViewHolder(binding.root) {
     fun setData(playNowMovieModel: PlayNowMovieModel) {
         with(binding) {
-            ivPnmMoviePoster.loadImage(playNowMovieModel.posterImageUrl, R.drawable.placeholder_image)
-            tvPnmMovieTitle.text = playNowMovieModel.title
-            tvPnmMovieShowTimes.text = playNowMovieModel.schedule.formatAsScheduleText()
+            ivPnmMoviePoster.loadImage(playNowMovieModel.posterUrl, R.drawable.placeholder_image)
+            tvPnmMovieTitle.text = playNowMovieModel.name
+            tvPnmMovieShowTimes.text = playNowMovieModel.schedules.formatAsScheduleText()
         }
     }
 }

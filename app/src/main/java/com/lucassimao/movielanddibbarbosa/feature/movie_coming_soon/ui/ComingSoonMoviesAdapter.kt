@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.lucassimao.movielanddibbarbosa.R
+import com.lucassimao.movielanddibbarbosa.core.Constants.URL_POSTER_PATH
 import com.lucassimao.movielanddibbarbosa.core.data.createDiffCallback
 import com.lucassimao.movielanddibbarbosa.core.ui.loadImage
 import com.lucassimao.movielanddibbarbosa.databinding.ItemComingSoonMovieBinding
@@ -30,7 +31,7 @@ class ComingSoonMovieViewHolder(
 ) : RecyclerView.ViewHolder(binding.root) {
     fun setData(movie: ComingSoonMovieModel) {
         with(binding) {
-            ivCsmMoviePoster.loadImage(movie.posterImageUrl, R.drawable.placeholder_image)
+            ivCsmMoviePoster.loadImage(URL_POSTER_PATH + movie.posterPath, R.drawable.placeholder_image)
             tvCsmMovieTitle.text = movie.title
         }
     }

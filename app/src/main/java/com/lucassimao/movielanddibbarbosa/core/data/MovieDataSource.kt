@@ -5,7 +5,7 @@ import com.lucassimao.movielanddibbarbosa.feature.movie_coming_soon.data.model.C
 import com.lucassimao.movielanddibbarbosa.feature.movie_play_now.data.model.PlayNowMovieModel
 
 interface MovieDataSource {
-    fun getPlayNowMovies(callbackHelper: CallbackHelper<List<PlayNowMovieModel>>){
+    fun getPlayNowMovies(callbackHelper: CallbackHelper<List<PlayNowMovieModel>>) {
         throw UnsupportedOperationException()
     }
 

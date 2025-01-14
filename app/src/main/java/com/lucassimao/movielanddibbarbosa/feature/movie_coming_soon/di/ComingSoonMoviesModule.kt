@@ -2,8 +2,9 @@ package com.lucassimao.movielanddibbarbosa.feature.movie_coming_soon.di
 
 import com.lucassimao.movielanddibbarbosa.core.data.MovieDataSource
 import com.lucassimao.movielanddibbarbosa.core.di.ComingSoon
+import com.lucassimao.movielanddibbarbosa.core.network.MovieApi
 import com.lucassimao.movielanddibbarbosa.feature.movie_coming_soon.data.ComingSoonMoviesRepositoryImpl
-import com.lucassimao.movielanddibbarbosa.feature.movie_coming_soon.data.service.MockComingSoonMovieDataSource
+import com.lucassimao.movielanddibbarbosa.feature.movie_coming_soon.data.service.ComingSoonMoviesDataSource
 import com.lucassimao.movielanddibbarbosa.feature.movie_coming_soon.domain.ComingSoonMoviesRepository
 import dagger.Module
 import dagger.Provides
@@ -15,8 +16,8 @@ import dagger.hilt.components.SingletonComponent
 object ComingSoonMoviesModule {
     @Provides
     @ComingSoon
-    fun provideMockComingSoonDataSource(): MovieDataSource {
-        return MockComingSoonMovieDataSource()
+    fun provideComingSoonDataSource(movieApi: MovieApi): MovieDataSource {
+        return ComingSoonMoviesDataSource(movieApi)
     }
 
     @Provides

@@ -90,6 +90,6 @@ class ComingSoonMoviesFragment : BaseFragment<List<ComingSoonMovieModel>>() {
     }
 
     override fun handleErrorState(state: UiState.Error) {
-        Toast.makeText(requireContext(), "Erro: ${state.message}", Toast.LENGTH_SHORT).show()
+        Toast.makeText(requireContext(), "Erro: ${state.message}", Toast.LENGTH_LONG).show()
     }
 }

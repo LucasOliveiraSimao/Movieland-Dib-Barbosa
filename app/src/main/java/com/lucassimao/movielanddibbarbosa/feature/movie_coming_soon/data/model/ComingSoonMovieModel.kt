@@ -1,15 +1,25 @@
 package com.lucassimao.movielanddibbarbosa.feature.movie_coming_soon.data.model
 
+
+import com.google.gson.annotations.SerializedName
 import com.lucassimao.movielanddibbarbosa.core.data.DiffItem
 
 data class ComingSoonMovieModel(
-    val movieId: Int?,
+    @SerializedName("id")
+    val id: Int?,
+    @SerializedName("overview")
+    val overview: String?,
+    @SerializedName("popularity")
+    val popularity: Double?,
+    @SerializedName("poster_path")
+    val posterPath: String?,
+    @SerializedName("release_date")
+    val releaseDate: String?,
+    @SerializedName("title")
     val title: String?,
-    val posterImageUrl: String?,
-    val schedule: List<Map<String, List<String>>> = emptyList()
 ) : DiffItem<ComingSoonMovieModel> {
     override fun areItemsTheSame(other: ComingSoonMovieModel): Boolean {
-        return movieId == other.movieId
+        return id == other.id
     }
 
     override fun areContentsTheSame(other: ComingSoonMovieModel): Boolean {

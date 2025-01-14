@@ -1,3 +1,6 @@
+import java.io.FileInputStream
+import java.util.Properties
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
@@ -5,6 +8,10 @@ plugins {
     alias(libs.plugins.hiltAndroid)
     alias(libs.plugins.google.gms.google.services)
 }
+
+val localPropertiesFile = rootProject.file("local.properties")
+val localProperties = Properties()
+localProperties.load(FileInputStream(localPropertiesFile))
 
 android {
     namespace = "com.lucassimao.movielanddibbarbosa"
@@ -21,7 +28,20 @@ android {
     }
 
     buildTypes {
-        release {
+        getByName("release") {
+            buildConfigField("String", "API_TOKEN", "\"${localProperties["API_TOKEN"]}\"")
+            buildConfigField("String", "BASE_URL", "\"${localProperties["BASE_URL"]}\"")
+
+            isMinifyEnabled = false
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
+        }
+        getByName("debug") {
+            buildConfigField("String", "API_TOKEN", "\"${localProperties["API_TOKEN"]}\"")
+            buildConfigField("String", "BASE_URL", "\"${localProperties["BASE_URL"]}\"")
+
             isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
@@ -38,10 +58,17 @@ android {
     }
     buildFeatures {
         viewBinding = true
+        buildConfig = true
     }
 }
 
 dependencies {
+    implementation(libs.converter.gson)
+    implementation(libs.gson)
+    implementation(libs.retrofit)
+    implementation(libs.okhttp)
+    implementation(libs.logging.interceptor)
+
     implementation(libs.glide)
 
     implementation(libs.shimmer)

@@ -1,10 +1,10 @@
 package com.lucassimao.movielanddibbarbosa.feature.movie_coming_soon.data.service
 
-import com.lucassimao.movielanddibbarbosa.core.data.DataSource
+import com.lucassimao.movielanddibbarbosa.core.data.MovieDataSource
 import com.lucassimao.movielanddibbarbosa.feature.movie_coming_soon.data.model.ComingSoonMovieModel
 import javax.inject.Inject
 
-class MockComingSoonDataSource @Inject constructor() : DataSource {
+class MockComingSoonMovieDataSource @Inject constructor() : MovieDataSource {
     override suspend fun getComingSoonMovies(): List<ComingSoonMovieModel> {
         return listOf(
             ComingSoonMovieModel(

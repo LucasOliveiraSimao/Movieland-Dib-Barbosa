@@ -1,7 +1,6 @@
 [versions]
 agp = "8.7.3"
 fragmentKtx = "1.8.5"
-glide = "4.16.0"
 kotlin = "2.1.0"
 coreKtx = "1.15.0"
 junit = "4.13.2"
@@ -24,10 +23,15 @@ lifecycleRuntimeKtx = "2.8.7"
 
 shimmer = "0.5.0"
 
+googleGmsGoogleServices = "4.4.2"
+
+firebaseDatabase = "21.0.0"
+
+glide = "4.16.0"
+
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 androidx-fragment-ktx = { module = "androidx.fragment:fragment-ktx", version.ref = "fragmentKtx" }
-glide = { module = "com.github.bumptech.glide:glide", version.ref = "glide" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
 androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
@@ -44,11 +48,14 @@ kotlinx-coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutine
 hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "hilt" }
 hilt-compiler = { group = "com.google.dagger", name = "hilt-compiler", version.ref = "hilt" }
 
+glide = { module = "com.github.bumptech.glide:glide", version.ref = "glide" }
+
 androidx-lifecycle-viewmodel-ktx = {group = "androidx.lifecycle",name = "lifecycle-viewmodel-ktx", version.ref = "lifecycleRuntimeKtx"}
 androidx-lifecycle-runtime-ktx = {group = "androidx.lifecycle",name = "lifecycle-runtime-ktx", version.ref = "lifecycleRuntimeKtx"}
 androidx-lifecycle-livedata-ktx = {group = "androidx.lifecycle",name = "lifecycle-livedata-ktx", version.ref = "lifecycleRuntimeKtx"}
 
 shimmer = { module = "com.facebook.shimmer:shimmer", version.ref = "shimmer" }
+firebase-database = { group = "com.google.firebase", name = "firebase-database", version.ref = "firebaseDatabase" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
@@ -56,4 +63,5 @@ kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 
 kotlinAndroidKsp = { id = "com.google.devtools.ksp", version.ref ="ksp" }
 hiltAndroid = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
+google-gms-google-services = { id = "com.google.gms.google-services", version.ref = "googleGmsGoogleServices" }
 

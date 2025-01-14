@@ -1,9 +1,10 @@
 package com.lucassimao.movielanddibbarbosa.feature.movie_play_now.util
 
-fun List<Map<String, List<String>>>.formatAsScheduleText(): String {
-    return joinToString("\n") { map ->
-        map.entries.joinToString("\n") { (day, times) ->
-            "$day: ${times.joinToString(", ")}"
-        }
+import com.lucassimao.movielanddibbarbosa.feature.movie_play_now.data.model.ScheduleModel
+
+fun List<ScheduleModel>.formatAsScheduleText(): String {
+    return joinToString("\n") { schedule ->
+        val hoursFormatted = schedule.hour.joinToString(", ")
+        "${schedule.day}: $hoursFormatted"
     }
 }

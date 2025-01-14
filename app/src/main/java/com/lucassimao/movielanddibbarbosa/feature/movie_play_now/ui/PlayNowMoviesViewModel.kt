@@ -5,7 +5,6 @@ import com.lucassimao.movielanddibbarbosa.core.ui.BaseViewModel
 import com.lucassimao.movielanddibbarbosa.feature.movie_play_now.data.model.PlayNowMovieModel
 import com.lucassimao.movielanddibbarbosa.feature.movie_play_now.domain.PlayNowMoviesRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -16,7 +15,6 @@ class PlayNowMoviesViewModel @Inject constructor(
 
     fun getPlayNowMovies() {
         viewModelScope.launch {
-            delay(3000)
             handleStateFlow(
                 flow = repository.getData(),
                 onError = { "Erro ao carregar filmes: ${it.message}" }

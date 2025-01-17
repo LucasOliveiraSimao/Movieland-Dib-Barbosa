@@ -29,8 +29,10 @@ android {
 
     buildTypes {
         getByName("release") {
-            buildConfigField("String", "API_TOKEN", "\"${localProperties["API_TOKEN"]}\"")
-            buildConfigField("String", "BASE_URL", "\"${localProperties["BASE_URL"]}\"")
+            buildConfigField("String", "API_TOKEN_TMDB", "\"${localProperties["API_TOKEN_TMDB"]}\"")
+            buildConfigField("String", "BASE_URL_TMDB", "\"${localProperties["BASE_URL_TMDB"]}\"")
+            buildConfigField("String", "API_TOKEN_NEWS", "\"${localProperties["API_TOKEN_NEWS"]}\"")
+            buildConfigField("String", "BASE_URL_NEWS", "\"${localProperties["BASE_URL_NEWS"]}\"")
 
             isMinifyEnabled = false
             proguardFiles(
@@ -39,8 +41,10 @@ android {
             )
         }
         getByName("debug") {
-            buildConfigField("String", "API_TOKEN", "\"${localProperties["API_TOKEN"]}\"")
-            buildConfigField("String", "BASE_URL", "\"${localProperties["BASE_URL"]}\"")
+            buildConfigField("String", "API_TOKEN_TMDB", "\"${localProperties["API_TOKEN_TMDB"]}\"")
+            buildConfigField("String", "BASE_URL_TMDB", "\"${localProperties["BASE_URL_TMDB"]}\"")
+            buildConfigField("String", "API_TOKEN_NEWS", "\"${localProperties["API_TOKEN_NEWS"]}\"")
+            buildConfigField("String", "BASE_URL_NEWS", "\"${localProperties["BASE_URL_NEWS"]}\"")
 
             isMinifyEnabled = false
             proguardFiles(

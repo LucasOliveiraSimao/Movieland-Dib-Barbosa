@@ -5,7 +5,6 @@ import com.lucassimao.movielanddibbarbosa.core.ui.BaseViewModel
 import com.lucassimao.movielanddibbarbosa.feature.news.data.model.ArticleModel
 import com.lucassimao.movielanddibbarbosa.feature.news.domain.NewsRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -16,7 +15,6 @@ class NewsViewModel @Inject constructor(
 
     fun getNews() {
         viewModelScope.launch {
-            delay(3000)
             handleStateFlow(
                 flow = repository.getData(),
                 onError = { "Erro ao carregar notícias: ${it.message}" }

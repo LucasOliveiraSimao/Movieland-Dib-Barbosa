@@ -36,6 +36,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:gravity="start"
+        android:justificationMode="inter_word"
         android:layout_margin="8dp"
         android:text="Subtitulo"
         android:textSize="16sp"

@@ -1,12 +1,12 @@
 package com.lucassimao.movielanddibbarbosa.core.network
 
 import com.lucassimao.movielanddibbarbosa.BuildConfig
+import com.lucassimao.movielanddibbarbosa.core.di.TMDB
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
-import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
@@ -19,20 +19,13 @@ object NetworkModule {
     fun provideOkHttpClient(): OkHttpClient {
         val builder = OkHttpClient.Builder()
 
-        if (BuildConfig.DEBUG) {
-            val loggingInterceptor = HttpLoggingInterceptor().apply {
-                level = HttpLoggingInterceptor.Level.BODY
-            }
-            builder.addInterceptor(loggingInterceptor)
-        }
-
         builder.addInterceptor { chain ->
             val original = chain.request()
             val requestBuilder = original.newBuilder()
                 .header("accept", "application/json")
                 .header(
                     "Authorization",
-                    "Bearer ${BuildConfig.API_TOKEN}"
+                    "Bearer ${BuildConfig.API_TOKEN_TMDB}"
                 )
                 .method(original.method, original.body)
             chain.proceed(requestBuilder.build())
@@ -46,17 +39,18 @@ object NetworkModule {
     }
 
     @Provides
-    fun provideMovieApi(retrofit: Retrofit): MovieApi {
-        return retrofit.create(MovieApi::class.java)
-    }
-
-    @Provides
+    @TMDB
     fun provideRetrofit(okHttpClient: OkHttpClient): Retrofit {
         return Retrofit.Builder()
-            .baseUrl(BuildConfig.BASE_URL)
+            .baseUrl(BuildConfig.BASE_URL_TMDB)
             .client(okHttpClient)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
+    }
+
+    @Provides
+    fun provideMovieApi(@TMDB retrofit: Retrofit): MovieApi {
+        return retrofit.create(MovieApi::class.java)
     }
 
 }

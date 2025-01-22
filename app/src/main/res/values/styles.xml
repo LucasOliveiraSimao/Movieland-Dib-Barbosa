@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="ImageViewStyle">
+        <item name="android:layout_margin">@dimen/info_margin_default</item>
+    </style>
+
+    <style name="TextViewStyle">
+        <item name="android:textSize">@dimen/info_text_size_medium</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <style name="TextViewLargeStyle">
+        <item name="android:textSize">@dimen/info_text_size_large</item>
+    </style>
+
+    <style name="TextViewSmallStyle">
+        <item name="android:textSize">@dimen/info_text_size_small</item>
+    </style>
+</resources>

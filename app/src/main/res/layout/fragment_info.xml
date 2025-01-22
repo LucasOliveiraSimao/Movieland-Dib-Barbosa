@@ -1,14 +1,159 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".feature.info.InfoFragment">
+    android:background="@color/background_color"
+    android:padding="@dimen/info_margin_default"
+    tools:context=".feature.info.ui.InfoFragment">
 
-    <!-- TODO: Update blank fragment layout -->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_top"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.15" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_middle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.30" />
+
+    <ImageView
+        android:id="@+id/iv_info"
+        style="@style/ImageViewStyle"
+        android:layout_width="@dimen/info_image_size"
+        android:layout_height="@dimen/info_image_size"
+        android:contentDescription="@string/info_image_description"
+        android:scaleType="centerInside"
+        android:src="@drawable/ic_launcher"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_middle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="InfoFragment" />
+        android:id="@+id/tv_title_info"
+        style="@style/TextViewLargeStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/info_title"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_top"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/iv_info"
+        app:layout_constraintTop_toTopOf="@+id/iv_info" />
 
-</FrameLayout>
+    <TextView
+        android:id="@+id/tv_address_info"
+        style="@style/TextViewStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/info_address"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_info"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/iv_info"
+        app:layout_constraintTop_toTopOf="@+id/guideline_top" />
+
+    <View
+        android:id="@+id/view_divider"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/info_divider_height"
+        android:background="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline_middle" />
+
+    <ImageView
+        android:id="@+id/iv_map_info"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:contentDescription="@string/map_image_description"
+        android:padding="@dimen/info_margin_default"
+        android:scaleType="centerCrop"
+        android:src="@drawable/img_location"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_bottom"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view_divider" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_bottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.60" />
+
+    <ImageView
+        android:id="@+id/iv_instagram_info"
+        style="@style/ImageViewStyle"
+        android:layout_width="@dimen/info_icon_size"
+        android:layout_height="@dimen/info_icon_size"
+        android:contentDescription="@string/instagram_icon_description"
+        android:src="@drawable/ic_instagram"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline_bottom" />
+
+    <TextView
+        android:id="@+id/tv_instagram_info"
+        style="@style/TextViewStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/instagram_text"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_instagram_info"
+        app:layout_constraintStart_toEndOf="@+id/iv_instagram_info"
+        app:layout_constraintTop_toTopOf="@+id/iv_instagram_info" />
+
+    <ImageView
+        android:id="@+id/iv_web_info"
+        style="@style/ImageViewStyle"
+        android:layout_width="@dimen/info_icon_size"
+        android:layout_height="@dimen/info_icon_size"
+        android:contentDescription="@string/web_icon_description"
+        android:src="@drawable/ic_web"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/iv_instagram_info" />
+
+    <TextView
+        android:id="@+id/tv_web_info"
+        style="@style/TextViewSmallStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/web_text"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_web_info"
+        app:layout_constraintStart_toEndOf="@+id/iv_web_info"
+        app:layout_constraintTop_toTopOf="@+id/iv_web_info" />
+
+    <ImageView
+        android:id="@+id/iv_email_info"
+        style="@style/ImageViewStyle"
+        android:layout_width="@dimen/info_icon_size"
+        android:layout_height="@dimen/info_icon_size"
+        android:contentDescription="@string/email_icon_description"
+        android:src="@drawable/ic_email"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/iv_web_info" />
+
+    <TextView
+        android:id="@+id/tv_email_info"
+        style="@style/TextViewStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/email_text"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_email_info"
+        app:layout_constraintStart_toEndOf="@+id/iv_email_info"
+        app:layout_constraintTop_toTopOf="@+id/iv_email_info" />
+
+    <TextView
+        android:id="@+id/tv_info"
+        style="@style/TextViewLargeStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/info_text"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

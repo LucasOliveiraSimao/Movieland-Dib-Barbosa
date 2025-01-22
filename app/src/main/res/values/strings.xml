@@ -7,4 +7,19 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="movies_play_now">Em Cartaz</string>
     <string name="movies_coming_soon">Em Breve</string>
+
+    <!--  Info Screen  -->
+    <string name="info_title">Movieland Dib Barbosa</string>
+    <string name="info_address">Av. Rui Barbosa, N° 595, Itacoatiara, Amazonas</string>
+    <string name="info_image_description">Logo</string>
+    <string name="map_image_description">Localização</string>
+    <string name="instagram_text">\@movieland.itacoatiara</string>
+    <string name="web_text">https://itacoatiara.movielandcinemas.com.br</string>
+    <string name="email_text">cinedibbarbosa@hotmail.com</string>
+    <string name="info_text">Funcionamos de Terça à Domingo</string>
+    <string name="instagram_icon_description">Ícone do Instagram</string>
+    <string name="web_icon_description">Ícone do Site</string>
+    <string name="email_icon_description">Ícone do Email</string>
+    <!--  Info Screen  -->
+
 </resources>
